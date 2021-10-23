@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   main-test.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/23 17:58:31 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/10/23 23:18:32 by ypetruzz         ###   ########.fr       */
+/*   Created: 2021/10/23 22:59:06 by ypetruzz          #+#    #+#             */
+/*   Updated: 2021/10/23 23:32:39 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdio.h>
-# include "libft/libft.h"
-# include <stdarg.h>
+int	main(void)
+{
+	int	a;
+	int	b;
+	int	c;
 
-int	ft_printf(const char *, ...);
+	a = 1;
+	b = 2;
+	c = 3;
 
-#endif
+	ft_printf("ada%sd%as%asd");
+}
