@@ -21,7 +21,6 @@ static int	ft_percent_count(const char *str)
 	index = 0;
 	while (str[index] != '\0')
 	{
-		printf("cc\n");
 		if (str[index] == '%')
 			count++;
 		index++;
@@ -29,17 +28,19 @@ static int	ft_percent_count(const char *str)
 	return (count);
 }
 
-int	ft_printf(const char *arg, ...)
+int	ft_printf(const char *str, ...)
 {
-	const char	*current_arg;
-	va_list		arguments;
+	int	current_arg;
+	va_list		arg_list;
 	int	test = 0;
 
-	va_start(arguments, arg);
-	current_arg = va_arg(arguments, const char *); // arguments pointer is ++ when this is called
-	printf("%s", current_arg);
-	test = ft_percent_count(current_arg);
+	va_start(arg_list, str);
+	current_arg = va_arg(arg_list, int); // arguments pointer is ++ when this is called
+	printf("%s\n", str);
+	printf("arg : %i\n", current_arg);
+	test = ft_percent_count(str);
 	printf("nombre d'arguments : %i", test);
+	va_end(arg_list);
 	// il faut un compteur de % pour pouvoir definir combien d'arguments sont passes
-	return (0);	
+	return (0);
 }

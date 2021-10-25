@@ -18,9 +18,9 @@ int	main(void)
 	int	b;
 	int	c;
 
-	a = 1;
+	a = 1000;
 	b = 2;
 	c = 3;
 
-	ft_printf("ada%sd%as%asd");
+	ft_printf("ada%sd%as%asd\n", a, b);
 }
