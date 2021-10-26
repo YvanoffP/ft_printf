@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-/*static int	ft_percent_count(const char *str)
+static size_t	ft_percent_count(const char *str)
 {
 	int	count;
 	int	index;
@@ -22,17 +22,23 @@
 	while (str[index] != '\0')
 	{
 		if (str[index] == '%')
+		{
 			count++;
+			if (str[index + 1] == '%')
+				index++;
+		}
 		index++;
 	}
 	return (count);
-}*/
+}
 
 int	ft_printf(const char *str, ...)
 {
-	va_list		arg_list;
-	int			count;
+	va_list	arg_list;
+	size_t	len;
+	int		count;
 
+	len = 0;
 	count = 0;
 	va_start(arg_list, str);
 	while (str[count] != '\0')
@@ -41,7 +47,7 @@ int	ft_printf(const char *str, ...)
 		if (str[count + 1] == '%')
 		{
 			count++;
-			ft_detect_type(str, &count, arg_list);
+			len += ft_detect_type(str, &count, arg_list);
 		}
 		else
 			count++;
@@ -52,6 +58,9 @@ int	ft_printf(const char *str, ...)
 
 
 	va_end(arg_list);
+	len = len + (count - ft_percent_count(str));
 	// il faut un compteur de % pour pouvoir definir combien d'arguments sont passes
-	return (0);
+	// retourner count - le nbr d'arguments + la len traitee dans les
+	// fonctions
+	return (len);
 }

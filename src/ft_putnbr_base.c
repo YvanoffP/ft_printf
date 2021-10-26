@@ -12,10 +12,12 @@
 
 #include "ft_printf.h"
 
-void	ft_putnbr_base(int nb, char *base)
+size_t	ft_putnbr_base(int nb, char *base)
 {
-	int	base_size;
+	int		base_size;
+	size_t	size;
 
+	size = ft_nbrlen(nb);
 	base_size = ft_strlen(base);
 	if (nb >= base_size)
 	{
@@ -24,12 +26,15 @@ void	ft_putnbr_base(int nb, char *base)
 	}
 	else
 		write(1, &base[nb], 1);
+	return (size);
 }
 
-void	ft_putnbr_base_unsigned(unsigned int nb, char *base)
+size_t	ft_putnbr_base_unsigned(unsigned int nb, char *base)
 {
 	unsigned int	base_size;
+	size_t			size;
 
+	size = ft_nbrlen(nb);
 	base_size = ft_strlen(base);
 	if (nb >= base_size)
 	{
@@ -38,18 +43,25 @@ void	ft_putnbr_base_unsigned(unsigned int nb, char *base)
 	}
 	else
 		write(1, &base[nb], 1);
+	return (size);
 }
 
-void	ft_putnbr_pointer(void *p, char *base)
+size_t	ft_putnbr_pointer(void *p, char *base)
 {
+	size_t	size;
+
+	size = 2;
 	ft_putstr_fd("0x", 1);
-	ft_putnbr_base_ul((unsigned long) p, base);
+	size += ft_putnbr_base_ul((unsigned long) p, base);
+	return (size);
 }
 
-void	ft_putnbr_base_ul(unsigned long nb, char *base)
+size_t	ft_putnbr_base_ul(unsigned long nb, char *base)
 {
 	unsigned long	base_size;
+	size_t	size;
 
+	size = 12;
 	base_size = (unsigned long)ft_strlen(base);
 	if (nb >= base_size)
 	{
@@ -58,4 +70,5 @@ void	ft_putnbr_base_ul(unsigned long nb, char *base)
 	}
 	else
 		write(1, &base[nb], 1);
+	return (size);
 }
