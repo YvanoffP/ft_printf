@@ -32,5 +32,4 @@ int	main(void)
 	ft_printf("Now we print %i in hexa, which is : %x\n", a, a);
 	ft_printf("What about this unsigned int : %u\n", unsint);
 	ft_printf("This is the address if pointer str : %p\n", str);
-	printf("(real printf)This is the address if pointer str : %p\n", str);
 }

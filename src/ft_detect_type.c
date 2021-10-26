@@ -71,7 +71,7 @@ void	ft_detect_type(const char *str, int *count, va_list arg_list)
 	}
 	else if (str[*count] == 'x')
 	{
-		ft_putnbr_base((int)va_arg(arg_list, int), "0123456789ABCDEF");
+		ft_putnbr_base((int)va_arg(arg_list, int), "0123456789abcdef");
 		*count = *count + 1;
 		return ;
 	}
@@ -83,7 +83,7 @@ void	ft_detect_type(const char *str, int *count, va_list arg_list)
 	}
 	else if (str[*count] == 'p')
 	{
-		ft_putnbr_base_address((void *)va_arg(arg_list, void *), "0123456789ABCDEF");
+		ft_putnbr_pointer((void *)va_arg(arg_list, void *), "0123456789abcdef");
 		*count = *count + 1;
 		return ;
 	}
