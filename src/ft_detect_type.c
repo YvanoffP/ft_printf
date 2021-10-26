@@ -75,5 +75,17 @@ void	ft_detect_type(const char *str, int *count, va_list arg_list)
 		*count = *count + 1;
 		return ;
 	}
+	else if (str[*count] == 'u')
+	{
+		ft_putnbr_base_unsigned((unsigned int)va_arg(arg_list, unsigned int), "0123456789");
+		*count = *count + 1;
+		return ;
+	}
+	else if (str[*count] == 'p')
+	{
+		ft_putnbr_base_address((void *)va_arg(arg_list, void *), "0123456789ABCDEF");
+		*count = *count + 1;
+		return ;
+	}
 
 }
