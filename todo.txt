@@ -1,6 +1,0 @@
-* I need a parser to count the args and parse their type
-* The porcess would be to write with putchar until next char == % and then
-  proceed to the reading
-
-* A cool way to sort things out would be a list holding the number of args, the
-  type of args. Have to figure a way of doing it
