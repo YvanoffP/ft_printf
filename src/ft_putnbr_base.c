@@ -6,23 +6,45 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 19:24:09 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/10/12 22:20:35 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/10/27 22:55:00 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_putnbr_base(int nb, char *base)
+size_t	ft_putnbr_base(long nb, char *base)
 {
 	int		base_size;
 	size_t	size;
 
 	size = ft_nbrlen(nb);
+	if (nb < 0)
+	{
+		ft_putchar_fd('-', 1);
+		nb *= -1;
+	}
 	base_size = ft_strlen(base);
 	if (nb >= base_size)
 	{
 		ft_putnbr_base(nb / base_size, base);
 		ft_putnbr_base(nb % base_size, base);
+	}
+	else
+		write(1, &base[nb], 1);
+	return (size);
+}
+
+size_t	ft_putnbr_base_hexa(long unsigned int nb, char *base)
+{
+	unsigned int		base_size;
+	size_t	size;
+
+	base_size = ft_strlen(base);
+	size = ft_nbrlen_hexa(nb);
+	if (nb >= base_size)
+	{
+		ft_putnbr_base_hexa(nb / base_size, base);
+		ft_putnbr_base_hexa(nb % base_size, base);
 	}
 	else
 		write(1, &base[nb], 1);
@@ -52,7 +74,7 @@ size_t	ft_putnbr_pointer(void *p, char *base)
 
 	size = 2;
 	ft_putstr_fd("0x", 1);
-	size += ft_putnbr_base_ul((unsigned long) p, base);
+	size += ft_putnbr_base_hexa((long long) p, base);
 	return (size);
 }
 
@@ -61,7 +83,12 @@ size_t	ft_putnbr_base_ul(unsigned long nb, char *base)
 	unsigned long	base_size;
 	size_t	size;
 
-	size = 12;
+	size = ft_nbrlen(nb);
+	if (nb < 0)
+	{
+		ft_putchar_fd('-', 1);
+		nb *= -1;
+	}
 	base_size = (unsigned long)ft_strlen(base);
 	if (nb >= base_size)
 	{
@@ -71,4 +98,19 @@ size_t	ft_putnbr_base_ul(unsigned long nb, char *base)
 	else
 		write(1, &base[nb], 1);
 	return (size);
+}
+
+size_t	ft_nbrlen_hexa(unsigned long nb)
+{
+	size_t	count;
+
+	count = 0;
+	if (nb == 0)
+		count++;
+	while (nb > 0)
+	{
+		nb = nb / 16;
+		count++;
+	}
+	return (count);
 }

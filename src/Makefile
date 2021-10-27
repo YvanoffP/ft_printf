@@ -4,7 +4,8 @@ MAIN	=	main-test.c
 
 HEADERS	= 	../libft/libft.a ft_printf.h
 
-CC		= 	gcc -Wall -Wextra -Werror
+#CC		= 	gcc -g -Wall -Wextra -Werror
+CC		= 	gcc
 
 all	:
 			$(CC) $(SRCS) $(MAIN) $(HEADERS)

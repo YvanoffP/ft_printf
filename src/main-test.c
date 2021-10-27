@@ -6,16 +6,17 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 22:59:06 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/10/27 18:37:58 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/10/27 22:55:03 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <limits.h>
 
 int	main(void)
 {
-
-	ft_printf(" NULL %s NULL ", NULL);
+	printf(" %p %p \n", LONG_MIN, LONG_MAX);
+	ft_printf(" %p %p \n", LONG_MIN, LONG_MAX);
 	/*int	a;
 	int b;
 	char *str;

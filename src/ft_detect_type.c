@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 22:59:06 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/10/27 18:39:11 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/10/27 22:45:39 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ size_t	ft_is_char(va_list arg_list)
 size_t	ft_detect_type(const char *str, int *count, va_list arg_list)
 {
 	size_t	len;
+	long test;
 
 	len = 0;
 	if (str[*count] == '%')
@@ -76,19 +77,20 @@ size_t	ft_detect_type(const char *str, int *count, va_list arg_list)
 	}
 	else if (str[*count] == 'd')
 	{
-		len = ft_putnbr_base((int)va_arg(arg_list, int), "0123456789");
+		test = va_arg(arg_list, int);
+		len = ft_putnbr_base(test, "0123456789");
 		*count = *count + 1;
 		return (len);
 	}
 	else if (str[*count] == 'x')
 	{
-		len = ft_putnbr_base((int)va_arg(arg_list, int), "0123456789abcdef");
+		len = ft_putnbr_base_hexa((unsigned int)va_arg(arg_list, unsigned int), "0123456789abcdef");
 		*count = *count + 1;
 		return (len);
 	}
 	else if (str[*count] == 'X')
 	{
-		len = ft_putnbr_base((int)va_arg(arg_list, int), "0123456789ABCDEF");
+		len = ft_putnbr_base_hexa((unsigned int)va_arg(arg_list, unsigned int), "0123456789ABCDEF");
 		*count = *count + 1;
 		return (len);
 	}
