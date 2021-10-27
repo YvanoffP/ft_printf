@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 22:59:06 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/10/23 23:32:39 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/10/27 18:37:58 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	main(void)
 {
-	int	a;
+
+	ft_printf(" NULL %s NULL ", NULL);
+	/*int	a;
 	int b;
 	char *str;
 	char c;
@@ -34,5 +36,5 @@ int	main(void)
 
 
 	ft_printf("\nhow many chars printed : %i\n", printf("str is %s %u %i lolilol\n", str, unsint, a));
-	printf("\nhow many chars printed : %i\n", ft_printf("str is %s %u %i lolilol\n", str, unsint, a));
+	printf("\nhow many chars printed : %i\n", ft_printf("str is %s %u %i lolilol\n", str, unsint, a));*/
 }

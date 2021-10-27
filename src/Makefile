@@ -6,9 +6,6 @@ HEADERS	= 	../libft/libft.a ft_printf.h
 
 CC		= 	gcc -Wall -Wextra -Werror
 
-all		:
-			$(CC) $(SRCS) $(HEADERS)
-
-main	:
+all	:
 			$(CC) $(SRCS) $(MAIN) $(HEADERS)
 			@echo "Files compiled, run ./a.out to test output"

@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 22:59:06 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/10/23 23:32:39 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/10/27 18:39:11 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,13 @@ size_t	ft_is_string(va_list arg_list)
 	char	*str_arg;
 
 	str_arg = va_arg(arg_list, char *);
-	ft_putstr_fd(str_arg, 1);
+	if (str_arg == NULL)
+	{
+		ft_putstr_fd("(null)", 1);
+		return (6);
+	}
+	else
+		ft_putstr_fd(str_arg, 1);
 	return (ft_strlen(str_arg));
 }
 
@@ -44,7 +50,6 @@ size_t	ft_detect_type(const char *str, int *count, va_list arg_list)
 	size_t	len;
 
 	len = 0;
-	*count = *count + 1;
 	if (str[*count] == '%')
 	{
 		ft_putchar_fd('%', 1);
@@ -78,6 +83,12 @@ size_t	ft_detect_type(const char *str, int *count, va_list arg_list)
 	else if (str[*count] == 'x')
 	{
 		len = ft_putnbr_base((int)va_arg(arg_list, int), "0123456789abcdef");
+		*count = *count + 1;
+		return (len);
+	}
+	else if (str[*count] == 'X')
+	{
+		len = ft_putnbr_base((int)va_arg(arg_list, int), "0123456789ABCDEF");
 		*count = *count + 1;
 		return (len);
 	}
