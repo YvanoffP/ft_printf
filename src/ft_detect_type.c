@@ -27,7 +27,7 @@ size_t	ft_is_string(va_list arg_list)
 
 	str_arg = va_arg(arg_list, char *);
 	ft_putstr_fd(str_arg, 1);
-	return (ft_strlen(str_arg) - 1);
+	return (ft_strlen(str_arg));
 }
 
 size_t	ft_is_char(va_list arg_list)

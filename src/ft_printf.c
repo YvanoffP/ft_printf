@@ -58,7 +58,7 @@ int	ft_printf(const char *str, ...)
 
 
 	va_end(arg_list);
-	len = len + (count - ft_percent_count(str));
+	len = len + (count - (ft_percent_count(str) * 2));
 	// il faut un compteur de % pour pouvoir definir combien d'arguments sont passes
 	// retourner count - le nbr d'arguments + la len traitee dans les
 	// fonctions

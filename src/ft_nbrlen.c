@@ -16,5 +16,5 @@ size_t	ft_nbrlen(long long int nbr)
 		nbr = nbr / 10;
 		count++;
 	}
-	return (count - 1);
+	return (count);
 }
