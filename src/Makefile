@@ -1,4 +1,4 @@
-SRCS	=	ft_nbrlen.c ft_putnbr_base.c ft_printf.c ft_detect_type.c
+SRCS	=	ft_nbrlen.c ft_putnbr_base.c ft_printf.c ft_detect_type.c ft_is_i_s_c.c
 
 MAIN	=	main-test.c
 

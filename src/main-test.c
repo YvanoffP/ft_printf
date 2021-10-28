@@ -6,7 +6,7 @@
 /*   By: ypetruzz <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 22:59:06 by ypetruzz          #+#    #+#             */
-/*   Updated: 2021/10/27 22:55:03 by ypetruzz         ###   ########.fr       */
+/*   Updated: 2021/10/28 15:25:12 by ypetruzz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 int	main(void)
 {
-	printf(" %p %p \n", LONG_MIN, LONG_MAX);
-	ft_printf(" %p %p \n", LONG_MIN, LONG_MAX);
 	/*int	a;
 	int b;
 	char *str;
