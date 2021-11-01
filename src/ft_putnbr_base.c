@@ -84,11 +84,6 @@ size_t	ft_putnbr_base_ul(unsigned long nb, char *base)
 	size_t			size;
 
 	size = ft_nbrlen(nb);
-	if (nb < 0)
-	{
-		ft_putchar_fd('-', 1);
-		nb *= -1;
-	}
 	base_size = (unsigned long)ft_strlen(base);
 	if (nb >= base_size)
 	{

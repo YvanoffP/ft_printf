@@ -27,6 +27,7 @@ int	main(void)
 	a = 11234;
 	b = 1209;
 
+
 	ft_printf("Let's print a modulo kek %%\nThis is my string yaya : %s\nAnd this is my int : %i\n", str, a);
 	ft_printf("Here comes a char rofl %c\nWhat about a base 10 number yay : %d\n", c, b);
 	ft_printf("Now we print %i in hexa, which is : %x\n", a, a);
@@ -36,4 +37,5 @@ int	main(void)
 
 	ft_printf("\nhow many chars printed : %i\n", printf("str is %s %u %i lolilol\n", str, unsint, a));
 	printf("\nhow many chars printed : %i\n", ft_printf("str is %s %u %i lolilol\n", str, unsint, a));*/
+	printf("%p", (void *)0);
 }
