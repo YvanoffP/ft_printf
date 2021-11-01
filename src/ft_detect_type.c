@@ -42,7 +42,7 @@ size_t	ft_detect_type(const char *str, int *count, va_list arg_list)
 size_t	ft_detect_type_2(const char *str, int *count, va_list arg_list)
 {
 	size_t	len;
-	long	long_int;
+	long	var_int;
 
 	len = 0;
 	if (str[*count] == 'c')
@@ -53,7 +53,7 @@ size_t	ft_detect_type_2(const char *str, int *count, va_list arg_list)
 	}
 	else if (str[*count] == 'd')
 	{
-		long_int = va_arg(arg_list, int);
+		var_int = va_arg(arg_list, int);
 		len = ft_putnbr_base(long_int, "0123456789");
 		*count = *count + 1;
 		return (len);
